@@ -1,0 +1,9 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine 
+
+RUN install_packages apache2 
+
+COPY index.html eyes.gif /var/www/localhost/htdocs/
+
+EXPOSE 80
+
+CMD /usr/sbin/httpd -D FOREGROUND 
