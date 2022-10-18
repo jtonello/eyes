@@ -1,20 +1,7 @@
-version: '2.1'
+version: '3.1'
 services:
-  browser:
-    image: balenablocks/browser:raspberrypi3
-    privileged: true
-    network_mode: host
-    restart: always
-    depends_on: 
-      - httpd
-  fbcp:
-    image: balenablocks/fbcp:waveshare35b-ili9486
-    privileged: true
-    depends_on: 
-      - browser
   httpd:
     build: ./httpd
-    network_mode: host
-    restart: always
+    container_name: eyes
     ports:
-      - "80:80"
+      - "8080:80"
